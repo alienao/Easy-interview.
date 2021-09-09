@@ -1,4 +1,4 @@
-import CustomLogin from './components/login/CustomLogin';
+import CustomLogin from './components/Login/CustomLogin';
 import Signup from './components/signup/Signup';
 import {
   BrowserRouter as Router,
