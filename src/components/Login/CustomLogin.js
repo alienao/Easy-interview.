@@ -4,6 +4,8 @@ import TextField from '@material-ui/core/TextField';
 import { makeStyles } from '@material-ui/core/styles';
 import { Link } from "react-router-dom";
 import ModalDialog from '../signup/ModalDialog/ModalDialog';
+import { blue } from '@material-ui/core/colors';
+import { mergeClasses } from '@material-ui/styles';
 const useStyles = makeStyles((theme) => ({
 
     form:{
@@ -20,29 +22,47 @@ const useStyles = makeStyles((theme) => ({
 }))
 
 const CustomLogin = () => {
+
     const classes = useStyles();
     const [email,setEmail] = useState('');
     const [password,setPassword] = useState('');
+    const [mailMessage,setMailMessage] = useState('');
+    const [passwordMessage,setPasswordMessage] = useState('');
+    const emailExpression = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
     const handelEmail = (e) => {
-          setEmail(e.target.value);
+
+        if(e.target.value.match(emailExpression)){
+            setEmail(e.target.value);
+            setMailMessage('');
+        }else{
+            setMailMessage('Enter a valid Mail address');
         }
+
+     }
       
     const handelPassword = (e) => {
-          setPassword(e.target.value);
+        if(e.target.value.length >= 8){
+            setPassword(e.target.value);
+            setPasswordMessage('');
+        }else{
+            setPasswordMessage('Enter characters above 8 elements!!')
         }
+    }
       
     const handelSubmit = (e) => {
           e.preventDefault();
           console.log(email);
           console.log(password);
         }
-    const handelSubmit1 = (e) => {
-        e.preventDefault();
-    }
       
     return (
 <div className = {classes.background}>
-<div> Welcome !</div>
+<div style={{
+    fontSize:35,
+    textAlign:'center',
+    color:"blue",
+}}> Welcome !</div>
    <form className={classes.form} noValidate autoComplete="off">
    <TextField
     id="first"
@@ -52,6 +72,10 @@ const CustomLogin = () => {
     color="secondary"
     onChange ={handelEmail}
   />
+  <span style={{
+          fontWeight: 'bold',
+          color: 'red',
+        }}>{mailMessage}</span>
   <TextField
     id="second"
     label="Password"
@@ -61,6 +85,11 @@ const CustomLogin = () => {
     type="password"    
     onChange= {handelPassword}
     />
+    <span style={{
+        fontWeight: 'bold',
+        color: 'red',
+    }}>{passwordMessage}
+    </span>
    </form>
    <Button
    variant="contained"
@@ -71,8 +100,10 @@ const CustomLogin = () => {
    >log in
    </Button>
 
-   <div>
-   <Link to="/signup">or sign up</Link>
+   <div style={{
+       textAlign:'center',
+   }}>
+   <Link  to="/signup">If you don't have an account click the sign-up link</Link>
    </div>
    </div>
     );
