@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import { makeStyles } from '@material-ui/core/styles';
+import { Link } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
 
@@ -12,6 +13,7 @@ const useStyles = makeStyles((theme) => ({
         alignItems:'center'
     },
     button:{
+        marginTop:theme.spacing(2),
         margin:'0 auto',
         display:'flex'
     }
@@ -34,6 +36,9 @@ const CustomLogin = () => {
           console.log(email);
           console.log(password);
         }
+    const handelSubmit1 = (e) => {
+        e.preventDefault();
+    }
       
     return (
 <div className = {classes.background}>
@@ -61,10 +66,14 @@ const CustomLogin = () => {
    variant="contained"
    className = {classes.button}
    type = "submit"
-   color = "secondary"
+   color = "primary"
    onClick ={handelSubmit}
    >log in
    </Button>
+
+   <div>
+   <Link to="/signup">or sign up</Link>
+   </div>
    </div>
     );
 }
