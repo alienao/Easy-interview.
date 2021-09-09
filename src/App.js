@@ -1,9 +1,15 @@
 
-import CustomLogin from './components/Login/CustomLogin'
+import CustomLogin from './components/Login/CustomLogin';
+import Signup from "./components/Signup/Signup/Signup";
+import './App.css';
+
 function App() {
   return(
-    //<Login/>
+    <div className="App">
     <CustomLogin/>
+    <Signup/>
+    </div>
+   
   );
 }
 
