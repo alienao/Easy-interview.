@@ -3,6 +3,7 @@ import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import { makeStyles } from '@material-ui/core/styles';
 import { Link } from "react-router-dom";
+import user from './user.json'
 const useStyles = makeStyles((theme) => ({
 
     form:{
@@ -49,8 +50,15 @@ const CustomLogin = () => {
       
     const handelSubmit = (e) => {
           e.preventDefault();
-          console.log(email);
-          console.log(password);
+          if(email == user.email1 || email == user.email2 || email == user.email3){
+              if(password == user.password1 || password == user.password2 || password == user.password3){
+                  alert('Welcome dear user')
+              }else{
+                  alert("wrong password!")
+              }
+          }else{
+              alert('wrong email!')
+          }
         }
       
     return (
