@@ -1,6 +1,5 @@
-
-import CustomLogin from './components/Login/CustomLogin'
-import ModalDialog from './components/signup/ModalDialog/ModalDialog';
+import CustomLogin from './components/login/CustomLogin';
+import Signup from './components/signup/Signup';
 import {
   BrowserRouter as Router,
   Switch,
@@ -13,15 +12,14 @@ function App() {
       <div>
         <Switch>
           <Route exact path = "/" component= {CustomLogin}/> 
-          <Route exact path = "/sign-up" component={ModalDialog} />
-            {/* <ModalDialog/> */}
-          {/* </Route> */}
+          <Route exact path = "/signup" component={Signup} />
         </Switch>
       </div>
     </Router>
 
 
     );
+
 }
 
 export default App;
