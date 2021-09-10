@@ -3,7 +3,7 @@ import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import { makeStyles } from '@material-ui/core/styles';
 import { Link } from "react-router-dom";
-import user from './user.json'
+
 const useStyles = makeStyles((theme) => ({
 
     form:{
@@ -19,48 +19,29 @@ const useStyles = makeStyles((theme) => ({
     }
 }))
 
-const CustomLogin = () => {
+const CustomLogin = (props) => {
 
     const classes = useStyles();
     const [email,setEmail] = useState('');
     const [password,setPassword] = useState('');
-    const [mailMessage,setMailMessage] = useState('');
-    const [passwordMessage,setPasswordMessage] = useState('');
-    const emailExpression = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    
+    
 
     const handelEmail = (e) => {
-
-        if(e.target.value.match(emailExpression)){
-            setEmail(e.target.value);
-            setMailMessage('');
-        }else{
-            setMailMessage('Enter a valid Mail address');
-        }
-
+        setEmail(e.target.value);
      }
       
     const handelPassword = (e) => {
-        if(e.target.value.length >= 8){
-            setPassword(e.target.value);
-            setPasswordMessage('');
-        }else{
-            setPasswordMessage('Enter characters above 8 elements!!')
-        }
+        setPassword(e.target.value);
     }
       
     const handelSubmit = (e) => {
           e.preventDefault();
-          if(email == user.email1 || email == user.email2 || email == user.email3){
-              if(password == user.password1 || password == user.password2 || password == user.password3){
-                  alert('Welcome dear user')
-              }else{
-                  alert("wrong password!")
-              }
-          }else{
-              alert('wrong email!')
-          }
+          console.log(email)
+          setEmail('');
+          setPassword('');
         }
-      
+
     return (
 <div className = {classes.background}>
 <div style={{
@@ -75,26 +56,21 @@ const CustomLogin = () => {
     variant="filled"
     margin="normal"
     color="secondary"
+    value={email}
     onChange ={handelEmail}
   />
-  <span style={{
-          fontWeight: 'bold',
-          color: 'red',
-        }}>{mailMessage}</span>
+
   <TextField
     id="second"
     label="Password"
     variant="outlined"
     margin="normal"
     color="secondary"
-    type="password"    
+    type="password"
+    value={password}    
     onChange= {handelPassword}
     />
-    <span style={{
-        fontWeight: 'bold',
-        color: 'red',
-    }}>{passwordMessage}
-    </span>
+
    </form>
    <Button
    variant="contained"
