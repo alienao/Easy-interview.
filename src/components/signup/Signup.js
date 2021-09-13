@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import { makeStyles } from '@material-ui/core';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
+import { Link } from 'react-router-dom';
 
 
 const useStyles = makeStyles(theme => ({
@@ -113,6 +114,9 @@ const Signup = (props) => {
         <Button type="submit" variant="contained" color="primary">
           Signup
         </Button>
+      </div>
+      <div>
+        <p>Already have an account.Sign in <Link  to="/">here</Link>.</p>
       </div>
     </form>
   );
