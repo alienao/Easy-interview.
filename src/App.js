@@ -1,11 +1,11 @@
-import CustomLogin from './components/Login/CustomLogin';
+import Login from './components/Login/Login';
 import Signup from './components/signup/Signup';
 import {
   BrowserRouter as Router,
   Switch,
   Route
 } from "react-router-dom";
-import { useState } from 'react';
+
 
 
 
@@ -20,7 +20,7 @@ function App() {
      <Router>
       <div>
         <Switch>
-          <Route exact path = "/"> <CustomLogin userArr = {jsonArr}/> </Route> 
+          <Route exact path = "/"> <Login userArr = {jsonArr}/> </Route> 
           <Route exact path = "/signup" > <Signup userCreatorFunc = {userCreator}/> </Route>
         </Switch>
       </div>

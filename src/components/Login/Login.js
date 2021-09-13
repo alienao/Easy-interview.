@@ -3,14 +3,20 @@ import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import { makeStyles } from '@material-ui/core/styles';
 import { Link } from "react-router-dom";
+import Box from '@material-ui/core/Box';
 
 const useStyles = makeStyles((theme) => ({
-
+    background:{
+        backgroundImage:"url(/assest/background.png)",
+        backgroundSize:"cover",
+        height:900
+    },
     form:{
         marginTop:theme.spacing(8),
         display:'flex',
         flexDirection:'column',
         alignItems:'center'
+
     },
     button:{
         marginTop:theme.spacing(2),
@@ -19,7 +25,7 @@ const useStyles = makeStyles((theme) => ({
     }
 }))
 
-const CustomLogin = (props) => {
+const Login = (props) => {
 
     const classes = useStyles();
     const [email,setEmail] = useState('');
@@ -52,12 +58,15 @@ const CustomLogin = (props) => {
         }
 
     return (
-<div className = {classes.background}>
+
+<Box className = {classes.background}>
+
 <div style={{
     fontSize:35,
     textAlign:'center',
-    color:"blue",
-}}> Welcome !</div>
+    color:"purple",
+    fontFamily:"sans-serif"
+}}> LOGO </div>
    <form className={classes.form} noValidate autoComplete="off">
    <TextField
     id="first"
@@ -90,13 +99,13 @@ const CustomLogin = (props) => {
    >log in
    </Button>
 
-   <div style={{
+   <Box style={{
        textAlign:'center',
    }}>
    <Link  to="/signup">If you don't have an account click the sign-up link</Link>
-   </div>
-   </div>
+   </Box>
+   </Box>
     );
 }
 
-export default CustomLogin;
+export default Login;
