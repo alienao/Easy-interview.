@@ -50,8 +50,8 @@ const CustomLogin = () => {
       
     const handelSubmit = (e) => {
           e.preventDefault();
-          if(email == user.email1 || email == user.email2 || email == user.email3){
-              if(password == user.password1 || password == user.password2 || password == user.password3){
+          if(email === user.email1 || email === user.email2 || email === user.email3){
+              if(password === user.password1 || password === user.password2 || password === user.password3){
                   alert('Welcome dear user')
               }else{
                   alert("wrong password!")

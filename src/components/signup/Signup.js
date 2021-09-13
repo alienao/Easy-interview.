@@ -5,6 +5,10 @@ import Button from '@material-ui/core/Button';
 
 const useStyles = makeStyles(theme => ({
   root: {
+    minHeight: '100vh',
+    backgroundImage: `url(${process.env.PUBLIC_URL + '/assets/background.png'})`,
+    backgroundRepeat: 'no-repeat',
+    backgroundSize: 'cover',
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'center',
@@ -36,7 +40,7 @@ const Signup = ({ handleClose }) => {
   };
 
   return (
-    <form className={classes.root} onSubmit={handleSubmit}>
+      <form className={classes.root} onSubmit={handleSubmit}>
       <TextField
         label="First Name"
         variant="filled"
