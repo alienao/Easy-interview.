@@ -3,6 +3,7 @@ import { makeStyles } from '@material-ui/core';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 
+
 const useStyles = makeStyles(theme => ({
   root: {
     minHeight: '100vh',
@@ -25,19 +26,46 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const Signup = ({ handleClose }) => {
+const Signup = (props) => {
+
   const classes = useStyles();
-  
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-
-  const handleSubmit = e => {
+  const [mailMessage,setMailMessage] = useState('');
+  const [passwordMessage,setPasswordMessage] = useState('');
+  const emailExpression = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  
+  const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(firstName, lastName, email, password);
-    handleClose();
+    const user = {
+      fname:firstName,
+      lname:lastName,
+      mail:email,
+      pass:password
+    }
+    
+    props.userCreatorFunc(user);
   };
+
+  const handelEmail = (e) => {
+    if(e.target.value.match(emailExpression)){
+        setEmail(e.target.value);
+        setMailMessage('');
+    }else{
+        setMailMessage('Enter a valid Mail address');
+    }
+
+ }
+ const handelPassword = (e) => {
+  if(e.target.value.length >= 8){
+      setPassword(e.target.value);
+      setPasswordMessage('');
+  }else{
+      setPasswordMessage('Enter characters above 8 elements!!')
+  }
+}
 
   return (
       <form className={classes.root} onSubmit={handleSubmit}>
@@ -60,21 +88,28 @@ const Signup = ({ handleClose }) => {
         variant="filled"
         type="email"
         required
-        value={email}
-        onChange={e => setEmail(e.target.value)}
-      />
+        vlaue={email}
+        onChange={handelEmail}
+        
+      /><span style={{
+        fontWeight: 'bold',
+        color: 'red',
+      }}>{mailMessage}</span>
+
       <TextField
         label="Password"
         variant="filled"
         type="password"
         required
-        value={password}
-        onChange={e => setPassword(e.target.value)}
+        vlaue={password}
+        onChange={handelPassword}
       />
+      <span style={{
+        fontWeight: 'bold',
+        color: 'red',
+    }}>{passwordMessage}
+    </span>
       <div>
-        <Button variant="contained" onClick={handleClose}>
-          Cancel
-        </Button>
         <Button type="submit" variant="contained" color="primary">
           Signup
         </Button>
