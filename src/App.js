@@ -1,6 +1,7 @@
 import Login from './components/Login/Login';
 import Signup from './components/signup/Signup';
 import Dashboard from './components/DashBoard/DashBoard';
+import Quiz from "./components/quiz/Quiz";
 import {
   BrowserRouter as Router,
   Switch,
@@ -24,6 +25,7 @@ function App() {
           <Route exact path = "/"> <Login userArr = {jsonArr}/> </Route> 
           <Route exact path = "/signup" > <Signup userCreatorFunc = {userCreator}/> </Route>
           <Route exact path = "/dashboard"><Dashboard/></Route>
+          <Route exact patch = "/quiz"><Quiz/></Route>
         </Switch>
       </div>
     </Router>
