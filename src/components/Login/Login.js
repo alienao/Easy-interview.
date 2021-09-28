@@ -15,7 +15,8 @@ const useStyles = makeStyles((theme) => ({
     background:{
         backgroundImage:"url(/assests/background.jpeg)",
         backgroundSize:"cover",
-        height: 811,
+        height: window.innerHeight,
+        width: window.innerWidth
     },
     loginElements:{
         float:'left',
@@ -130,7 +131,6 @@ const Login = (props) => {
    <Box className = {classes.signupLink} >Don't have an account. Create account 
    <Link  to="/signup"> here</Link> .
    </Box>
-
    </Box>
 
    </Paper>
