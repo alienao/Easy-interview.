@@ -1,0 +1,7 @@
+.createForm_section{
+    margin: 150px 300px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}

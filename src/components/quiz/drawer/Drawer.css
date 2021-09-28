@@ -1,0 +1,13 @@
+.list_item {
+margin-left: 20px;
+margin-top: 20px;
+} 
+
+.listMain > :first-child {
+    margin-top: 50px;
+  }
+
+.list_item:hover {
+ background-color : #8c7cb6 ;
+ border-radius: 5px;
+}
