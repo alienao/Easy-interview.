@@ -21,7 +21,7 @@ const useStyles = makeStyles((theme) => ({
     loginElements:{
         float:'left',
         marginLeft: "260px",
-        marginTop: "330px"
+        marginTop: "250px"
     },
     logo:{
         fontSize:30,
