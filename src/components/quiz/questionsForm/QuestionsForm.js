@@ -1,4 +1,4 @@
-import React, { useState,useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import CropOriginalIcon from "@material-ui/icons/CropOriginal";
 import Select from "@material-ui/core/Select";
 import Switch from "@material-ui/core/Switch";
@@ -36,69 +36,77 @@ function QuestionsForm() {
     },
   ]);
 
-  function changeQuestion(text, i){
-    let newQuestion =[...questions];
-    newQuestion[i].questionText= text;
+  function changeQuestion(text, i) {
+    let newQuestion = [...questions];
+    newQuestion[i].questionText = text;
     setQuestions(newQuestion);
     console.log(newQuestion);
   }
 
-function changeOptionValue(text, i, j){
-  let optionsQuestion= [...questions];
-  optionsQuestion[i].options[j].optionText= text;
-  setQuestions(optionsQuestion);
-  console.log(optionsQuestion);
-}
+  function changeOptionValue(text, i, j) {
+    let optionsQuestion = [...questions];
+    optionsQuestion[i].options[j].optionText = text;
+    setQuestions(optionsQuestion);
+    console.log(optionsQuestion);
+  }
 
-  function addQuestionType(i, type){
-    let qst=[...questions];
+  function addQuestionType(i, type) {
+    let qst = [...questions];
     console.log(type);
     qst[i].questionType = type;
     setQuestions(qst);
   }
 
-  function removeOption(i,j){
-    let RemoveOptionQuestion =[...questions];
-    if(RemoveOptionQuestion[i].options.length >1){
-      RemoveOptionQuestion[i].options.splice(j,1);
+  function removeOption(i, j) {
+    let RemoveOptionQuestion = [...questions];
+    if (RemoveOptionQuestion[i].options.length > 1) {
+      RemoveOptionQuestion[i].options.splice(j, 1);
       setQuestions(RemoveOptionQuestion);
-      console.log(i +"__"+j);
+      console.log(i + "__" + j);
     }
   }
 
-  function addOption(i){
+  function addOption(i) {
     let optionOfQuestion = [...questions];
-    optionOfQuestion[i].options.push({optionText: "Option"+ (optionOfQuestion[i].options.length + 1)})
-    setQuestions(optionOfQuestion)
+    optionOfQuestion[i].options.push({
+      optionText: "Option" + (optionOfQuestion[i].options.length + 1),
+    });
+    setQuestions(optionOfQuestion);
   }
 
-  function copyQuestion(i){
-    let qst=[...questions];
-    let newQuestion= qst[i];
-    setQuestions([...questions, newQuestion])
+  function copyQuestion(i) {
+    let qst = [...questions];
+    let newQuestion = qst[i];
+    setQuestions([...questions, newQuestion]);
   }
 
-  function deleteQuestion(i){
-    let qst =[...questions];
-    if(questions.length>1){
+  function deleteQuestion(i) {
+    let qst = [...questions];
+    if (questions.length > 1) {
       qst.splice(i, 1);
     }
     setQuestions(qst);
   }
 
-  function requiredQuestion(i){
-    let reqQuestion=[...questions];
-    reqQuestion[i].required=!reqQuestion[i].required
-    console.log(reqQuestion[i].required+" "+i);
-    setQuestions(reqQuestion)
+  function requiredQuestion(i) {
+    let reqQuestion = [...questions];
+    reqQuestion[i].required = !reqQuestion[i].required;
+    console.log(reqQuestion[i].required + " " + i);
+    setQuestions(reqQuestion);
   }
 
-  function addMoreQuestionField(){
-    setQuestions([...questions,
-{questionText:"Question", questionType:"radio", options:[{optionText:"Option 1"}],open:true, required:false}]
-      );
+  function addMoreQuestionField() {
+    setQuestions([
+      ...questions,
+      {
+        questionText: "Question",
+        questionType: "radio",
+        options: [{ optionText: "Option 1" }],
+        open: true,
+        required: false,
+      },
+    ]);
   }
-
 
   function questionsUI() {
     return questions.map((ques, i) => (
@@ -106,14 +114,13 @@ function changeOptionValue(text, i, j){
         <Accordion
           expanded={questions[i].open}
           className={questions[i].open ? "add_border" : ""}
-        > 
+        >
           <AccordionSummary
             aria-controls="panel1a-content"
             id="panel1a-header"
             elevation={1}
             style={{ width: "100%" }}
-          >
-          </AccordionSummary>
+          ></AccordionSummary>
           <div className="question_boxes">
             <AccordionDetails className="add_question">
               <div className="add_question_top">
@@ -122,7 +129,9 @@ function changeOptionValue(text, i, j){
                   className="question"
                   placeholder="Question"
                   value={ques.questionText}
-                  onChange ={(e)=>{changeQuestion(e.target.value, i)}}
+                  onChange={(e) => {
+                    changeQuestion(e.target.value, i);
+                  }}
                 ></input>
                 <CropOriginalIcon style={{ color: "#5f6368" }} />
 
@@ -130,25 +139,38 @@ function changeOptionValue(text, i, j){
                   className="select"
                   style={{ color: "#5f6368", fontSize: "13px" }}
                 >
-                  <MenuItem id="text" value="Text"
-                  onClick ={()=>{addQuestionType(i, "text")}}>
-                    <SubjectIcon style={{ marginRight: "10px" }} 
-                    /> Paragraph
+                  <MenuItem
+                    id="text"
+                    value="Text"
+                    onClick={() => {
+                      addQuestionType(i, "text");
+                    }}
+                  >
+                    <SubjectIcon style={{ marginRight: "10px" }} /> Paragraph
                   </MenuItem>
-                  <MenuItem id="checkbox" value="Checkbox"
-                  onClick ={()=>{addQuestionType(i, "checkbox")}}>
+                  <MenuItem
+                    id="checkbox"
+                    value="Checkbox"
+                    onClick={() => {
+                      addQuestionType(i, "checkbox");
+                    }}
+                  >
                     <CheckBoxIcon
                       style={{ marginRight: "10px", color: "#70757a" }}
-                      checked 
+                      checked
                     />
                     Checkboxes
                   </MenuItem>
-                  <MenuItem id="radio" value="Radio"
-                  onClick ={()=>{addQuestionType(i, "radio")}}>
+                  <MenuItem
+                    id="radio"
+                    value="Radio"
+                    onClick={() => {
+                      addQuestionType(i, "radio");
+                    }}
+                  >
                     <Radio
                       style={{ marginRight: "10px", color: "#70757a" }}
                       checked
-                      
                     />
                     Multiple Choice
                   </MenuItem>
@@ -170,24 +192,26 @@ function changeOptionValue(text, i, j){
                       className="text_input"
                       placeholder="option"
                       value={ques.options[j].optionText}
-                      onChange={(e)=>{changeOptionValue(e.target.value, i, j )}}
+                      onChange={(e) => {
+                        changeOptionValue(e.target.value, i, j);
+                      }}
                     ></input>
                   </div>
 
                   <CropOriginalIcon style={{ color: "#5f6368" }} />
 
                   <IconButton aria-label="delete">
-                    <CloseIcon onClick={()=>removeOption(i,j)}/>
+                    <CloseIcon onClick={() => removeOption(i, j)} />
                   </IconButton>
                 </div>
               ))}
 
-              { 
+              {
                 <div className="add_question_body">
                   <FormControlLabel
                     disabled
                     control={
-                      (ques.questionType != "text" )? 
+                      ques.questionType != "text" ? (
                         <input
                           type={ques.questionType}
                           color="primary"
@@ -195,9 +219,9 @@ function changeOptionValue(text, i, j){
                           style={{ marginLeft: "10px", marginRight: "10px" }}
                           disabled
                         />
-                       : 
+                      ) : (
                         <ShortTextIcon style={{ marginRight: "10px" }} />
-                      
+                      )
                     }
                     label={
                       <div>
@@ -215,7 +239,9 @@ function changeOptionValue(text, i, j){
                             fontSize: "13px",
                             fontWeight: "600",
                           }}
-                          onClick = {()=>{addOption(i)}}
+                          onClick={() => {
+                            addOption(i);
+                          }}
                         >
                           Add Option
                         </Button>
@@ -223,19 +249,25 @@ function changeOptionValue(text, i, j){
                     }
                   />
                 </div>
-               }
+              }
               <div className="add_footer">
-                <div className="add_question_bottom_left">
-                </div>
+                <div className="add_question_bottom_left"></div>
                 <div className="add_question_bottom">
-                  <IconButton aria-label="Copy"
-                  onClick={()=>{copyQuestion(i)}}>
+                  <IconButton
+                    aria-label="Copy"
+                    onClick={() => {
+                      copyQuestion(i);
+                    }}
+                  >
                     <FilterNoneIcon />
                   </IconButton>
-                  <IconButton aria-label="delete"
-                  onClick={()=>{deleteQuestion(i)}}>
+                  <IconButton
+                    aria-label="delete"
+                    onClick={() => {
+                      deleteQuestion(i);
+                    }}
+                  >
                     <BsTrash />
-
                   </IconButton>
                   <span style={{ color: "#5f6368", fontSize: "13px" }}>
                     Required
@@ -243,7 +275,9 @@ function changeOptionValue(text, i, j){
                   <Switch
                     name="checkedA"
                     color="primary"
-                    onClick={()=>{requiredQuestion(i)}}
+                    onClick={() => {
+                      requiredQuestion(i);
+                    }}
                     checked={ques.required}
                   />
                 </div>
@@ -251,7 +285,10 @@ function changeOptionValue(text, i, j){
             </AccordionDetails>
 
             <div className="question_edit">
-                      <AddCircleOutlineIcon onClick={addMoreQuestionField} className="edit"/>
+              <AddCircleOutlineIcon
+                onClick={addMoreQuestionField}
+                className="edit"
+              />
             </div>
           </div>
         </Accordion>
@@ -280,8 +317,6 @@ function changeOptionValue(text, i, j){
             </div>
           </div>
           {questionsUI()}
-
-         
         </div>
       </div>
     </div>
