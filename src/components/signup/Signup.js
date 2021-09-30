@@ -1,23 +1,24 @@
 import React, { useState } from "react";
-import { makeStyles } from "@material-ui/core";
+import { FormControl, makeStyles } from "@material-ui/core";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 import { Link } from "react-router-dom";
-
+import { Paper } from "@material-ui/core";
+import { emailExp } from "../../constants";
 const useStyles = makeStyles((theme) => ({
+  paperRoot: {
+    backgroundImage: "url(/assests/background.jpeg)",
+    backgroundSize: "cover",
+    height: window.innerHeight,
+    width: window.innerWidth,
+  },
   root: {
     minHeight: "100vh",
-    backgroundImage: `url(${
-      process.env.PUBLIC_URL + "/assests/background.jpeg"
-    })`,
-    backgroundRepeat: "no-repeat",
-    backgroundSize: "cover",
     display: "flex",
     flexDirection: "column",
     justifyContent: "center",
     alignItems: "center",
     padding: theme.spacing(2),
-
     "& .MuiTextField-root": {
       margin: theme.spacing(1),
       width: "300px",
@@ -25,6 +26,20 @@ const useStyles = makeStyles((theme) => ({
     "& .MuiButtonBase-root": {
       margin: theme.spacing(2),
     },
+    float: "left",
+    marginLeft: "230px",
+  },
+  form: {
+    marginTop: theme.spacing(2.5),
+  },
+  button: {
+    marginTop: theme.spacing(2),
+    margin: "0 auto",
+    display: "flex",
+    color: "#553E93",
+    height: "35px",
+    width: "140px",
+    borderColor: "#553E93",
   },
 
   button: {
@@ -46,8 +61,7 @@ const Signup = (props) => {
   const [password, setPassword] = useState("");
   const [mailMessage, setMailMessage] = useState("");
   const [passwordMessage, setPasswordMessage] = useState("");
-  const emailExpression =
-    /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  const emailExpression = emailExp;
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -79,79 +93,80 @@ const Signup = (props) => {
   };
 
   return (
-    
-    <form className={classes.root} onSubmit={handleSubmit}>
-      <div
-        style={{
-          fontSize: 30,
-          textAlign: "center",
-          color: "#553E93",
-          fontFamily: "sans-serif",
-        }}
-      >
-        {" "}
-        LOGO{" "}
-      </div>
+    <Paper className={classes.paperRoot}>
+      <form className={classes.root} onSubmit={handleSubmit}>
+        <div
+          style={{
+            fontSize: 30,
+            textAlign: "center",
+            color: "#553E93",
+            fontFamily: "sans-serif",
+          }}
+        >
+          {" "}
+          LOGO{" "}
+        </div>
+        <FormControl className={classes.form}>
+          <TextField
+            label="First Name"
+            variant="filled"
+            required
+            value={firstName}
+            onChange={(e) => setFirstName(e.target.value)}
+          />
+          <TextField
+            label="Last Name"
+            variant="filled"
+            required
+            value={lastName}
+            onChange={(e) => setLastName(e.target.value)}
+          />
+          <TextField
+            label="Email"
+            variant="filled"
+            type="email"
+            required
+            vlaue={email}
+            onChange={handelEmail}
+          />
+          <span
+            style={{
+              fontWeight: "bold",
+              color: "red",
+            }}
+          >
+            {mailMessage}
+          </span>
 
-      <TextField
-        label="First Name"
-        variant="filled"
-        required
-        value={firstName}
-        onChange={(e) => setFirstName(e.target.value)}
-      />
-      <TextField
-        label="Last Name"
-        variant="filled"
-        required
-        value={lastName}
-        onChange={(e) => setLastName(e.target.value)}
-      />
-      <TextField
-        label="Email"
-        variant="filled"
-        type="email"
-        required
-        vlaue={email}
-        onChange={handelEmail}
-      />
-      <span
-        style={{
-          fontWeight: "bold",
-          color: "red",
-        }}
-      >
-        {mailMessage}
-      </span>
-
-      <TextField
-        label="Password"
-        variant="filled"
-        type="password"
-        required
-        vlaue={password}
-        onChange={handelPassword}
-      />
-      <span
-        style={{
-          fontWeight: "bold",
-          color: "red",
-        }}
-      >
-        {passwordMessage}
-      </span>
-      <div>
-        <Button variant="outlined" className={classes.button} type="submit">
-          SIGN UP
-        </Button>
-      </div>
-      <div>
-        <p>
-          Already have an account.Sign in <Link to="/">here</Link>.
-        </p>
-      </div>
-    </form>
-    
+          <TextField
+            label="Password"
+            variant="filled"
+            type="password"
+            required
+            vlaue={password}
+            onChange={handelPassword}
+          />
+        </FormControl>
+        <span
+          style={{
+            fontWeight: "bold",
+            color: "red",
+          }}
+        >
+          {passwordMessage}
+        </span>
+        <div>
+          <Button variant="outlined" className={classes.button} type="submit">
+            SIGN UP
+          </Button>
+        </div>
+        <div>
+          <p>
+            Already have an account.Sign in <Link to="/">here</Link>.
+          </p>
+        </div>
+      </form>
+    </Paper>
   );
 };
 

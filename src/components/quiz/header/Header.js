@@ -1,8 +1,8 @@
 import React from "react";
 import "./Header.css";
 import { IconButton } from "@material-ui/core";
-import TempDrawer from "../drawer/TempDrawer";
-import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import TempDrawer from "../Drawer/TempDrawer";
+import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 
 function Header() {
   return (
@@ -13,7 +13,7 @@ function Header() {
 
       <div className="header_right">
         <IconButton>
-          <AccountCircleIcon style={{ color: '#8c7cb6', fontSize: '50' }}/>
+          <AccountCircleIcon style={{ color: "#8c7cb6", fontSize: "50" }} />
         </IconButton>
       </div>
     </div>
