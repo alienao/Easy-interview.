@@ -40,6 +40,16 @@ const useStyles = makeStyles((theme) => ({
     width: "140px",
     borderColor: "#553E93",
   },
+
+  button: {
+    marginTop: theme.spacing(2),
+    margin: "0 auto",
+    display: "flex",
+    color: "#553E93",
+    height: "35px",
+    width: "140px",
+    borderColor: "#553E93",
+  },
 }));
 
 const Signup = (props) => {
