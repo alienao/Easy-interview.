@@ -24,7 +24,6 @@ function App() {
         <Switch>
           <Route exact path = "/"> <Login userArr = {jsonArr}/> </Route> 
           <Route exact path = "/signup" > <Signup userCreatorFunc = {userCreator}/> </Route>
-          <Route exact path = "/dashboard"><Dashboard/></Route>
           <Route exact patch = "/quiz"><Quiz/></Route>
         </Switch>
       </div>
