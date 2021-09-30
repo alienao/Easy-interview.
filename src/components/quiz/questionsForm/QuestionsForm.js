@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import CropOriginalIcon from "@material-ui/icons/CropOriginal";
 import Select from "@material-ui/core/Select";
 import Switch from "@material-ui/core/Switch";
 import CheckBoxIcon from "@material-ui/icons/CheckBox";
@@ -16,7 +15,6 @@ import Button from "@material-ui/core/Button";
 import CloseIcon from "@material-ui/icons/Close";
 import Radio from "@material-ui/core/Radio";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
-import Typography from "@mui/material/Typography";
 import MenuItem from "@mui/material/MenuItem";
 import "./QuestionsForm.css";
 
@@ -133,7 +131,6 @@ function QuestionsForm() {
                     changeQuestion(e.target.value, i);
                   }}
                 ></input>
-                <CropOriginalIcon style={{ color: "#5f6368" }} />
 
                 <Select
                   className="select"
@@ -198,8 +195,6 @@ function QuestionsForm() {
                     ></input>
                   </div>
 
-                  <CropOriginalIcon style={{ color: "#5f6368" }} />
-
                   <IconButton aria-label="delete">
                     <CloseIcon onClick={() => removeOption(i, j)} />
                   </IconButton>
@@ -235,7 +230,7 @@ function QuestionsForm() {
                           size="small"
                           style={{
                             textTransform: "none",
-                            color: "#4285f4",
+                            color: "rgb(140, 124, 182)",
                             fontSize: "13px",
                             fontWeight: "600",
                           }}
@@ -253,6 +248,13 @@ function QuestionsForm() {
               <div className="add_footer">
                 <div className="add_question_bottom_left"></div>
                 <div className="add_question_bottom">
+                  <IconButton>
+                    <AddCircleOutlineIcon
+                      onClick={addMoreQuestionField}
+                      className="edit"
+                    />
+                  </IconButton>
+
                   <IconButton
                     aria-label="Copy"
                     onClick={() => {
@@ -283,13 +285,6 @@ function QuestionsForm() {
                 </div>
               </div>
             </AccordionDetails>
-
-            <div className="question_edit">
-              <AddCircleOutlineIcon
-                onClick={addMoreQuestionField}
-                className="edit"
-              />
-            </div>
           </div>
         </Accordion>
       </div>
