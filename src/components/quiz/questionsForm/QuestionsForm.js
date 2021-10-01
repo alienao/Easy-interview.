@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Select from "@material-ui/core/Select";
 import Switch from "@material-ui/core/Switch";
-import { alpha, styled } from '@mui/material/styles';
+import { alpha, styled } from "@mui/material/styles";
 import CheckBoxIcon from "@material-ui/icons/CheckBox";
 import ShortTextIcon from "@material-ui/icons/ShortText";
 import SubjectIcon from "@material-ui/icons/Subject";
@@ -20,14 +20,17 @@ import MenuItem from "@mui/material/MenuItem";
 import "./QuestionsForm.css";
 
 const SwitchPurple = styled(Switch)(({ theme }) => ({
-  '& .MuiSwitch-switchBase.Mui-checked': {
-    color: 'rgb(140, 124, 182)',
-    '&:hover': {
-      backgroundColor: alpha('rgb(140, 124, 182)', theme.palette.action.hoverOpacity),
+  "& .MuiSwitch-switchBase.Mui-checked": {
+    color: "rgb(140, 124, 182)",
+    "&:hover": {
+      backgroundColor: alpha(
+        "rgb(140, 124, 182)",
+        theme.palette.action.hoverOpacity
+      ),
     },
   },
-  '& .MuiSwitch-switchBase.Mui-checked + .MuiSwitch-track': {
-    backgroundColor: 'rgb(140, 124, 182)',
+  "& .MuiSwitch-switchBase.Mui-checked + .MuiSwitch-track": {
+    backgroundColor: "rgb(140, 124, 182)",
   },
 }));
 
@@ -147,7 +150,7 @@ function QuestionsForm() {
 
                 <Select
                   className="select"
-                  style={{ color: "#5f6368", fontSize: "13px" }}
+                  style={{ color: "rgb(140, 124, 182)", fontSize: "13px" }}
                 >
                   <MenuItem
                     id="text"
@@ -156,7 +159,13 @@ function QuestionsForm() {
                       addQuestionType(i, "text");
                     }}
                   >
-                    <SubjectIcon style={{ marginRight: "10px" }} /> Paragraph
+                    <SubjectIcon
+                      style={{
+                        marginRight: "10px",
+                        color: "rgb(140, 124, 182)",
+                      }}
+                    />{" "}
+                    Paragraph
                   </MenuItem>
                   <MenuItem
                     id="checkbox"
@@ -166,7 +175,10 @@ function QuestionsForm() {
                     }}
                   >
                     <CheckBoxIcon
-                      style={{ marginRight: "10px", color: "#70757a" }}
+                      style={{
+                        marginRight: "10px",
+                        color: "rgb(140, 124, 182)",
+                      }}
                       checked
                     />
                     Checkboxes
@@ -179,7 +191,10 @@ function QuestionsForm() {
                     }}
                   >
                     <Radio
-                      style={{ marginRight: "10px", color: "#70757a" }}
+                      style={{
+                        marginRight: "10px",
+                        color: "rgb(140, 124, 182)",
+                      }}
                       checked
                     />
                     Multiple Choice
@@ -209,7 +224,12 @@ function QuestionsForm() {
                   </div>
 
                   <IconButton aria-label="delete">
-                    <CloseIcon onClick={() => removeOption(i, j)} />
+                    <CloseIcon
+                      style={{
+                        color: "rgb(140, 124, 182)",
+                      }}
+                      onClick={() => removeOption(i, j)}
+                    />
                   </IconButton>
                 </div>
               ))}
@@ -233,12 +253,6 @@ function QuestionsForm() {
                     }
                     label={
                       <div>
-                        <input
-                          type="text"
-                          className="text_input"
-                          style={{ fontSize: "13px", width: "60px" }}
-                          placeholder="Add other"
-                        ></input>
                         <Button
                           size="small"
                           style={{
@@ -251,7 +265,7 @@ function QuestionsForm() {
                             addOption(i);
                           }}
                         >
-                          Add Option
+                          Add new option
                         </Button>
                       </div>
                     }
@@ -274,9 +288,7 @@ function QuestionsForm() {
                       copyQuestion(i);
                     }}
                   >
-                    <FilterNoneIcon 
-                    className="copy"
-                    />
+                    <FilterNoneIcon className="copy" />
                   </IconButton>
                   <IconButton
                     aria-label="delete"
@@ -284,8 +296,7 @@ function QuestionsForm() {
                       deleteQuestion(i);
                     }}
                   >
-                    <BsTrash 
-                    className ="bstrash"/>
+                    <BsTrash className="bstrash" />
                   </IconButton>
                   <SwitchPurple
                     name="checkedA"
