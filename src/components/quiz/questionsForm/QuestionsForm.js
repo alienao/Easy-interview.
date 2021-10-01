@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Select from "@material-ui/core/Select";
 import Switch from "@material-ui/core/Switch";
+import { alpha, styled } from '@mui/material/styles';
 import CheckBoxIcon from "@material-ui/icons/CheckBox";
 import ShortTextIcon from "@material-ui/icons/ShortText";
 import SubjectIcon from "@material-ui/icons/Subject";
@@ -17,6 +18,18 @@ import Radio from "@material-ui/core/Radio";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import MenuItem from "@mui/material/MenuItem";
 import "./QuestionsForm.css";
+
+const SwitchPurple = styled(Switch)(({ theme }) => ({
+  '& .MuiSwitch-switchBase.Mui-checked': {
+    color: 'rgb(140, 124, 182)',
+    '&:hover': {
+      backgroundColor: alpha('rgb(140, 124, 182)', theme.palette.action.hoverOpacity),
+    },
+  },
+  '& .MuiSwitch-switchBase.Mui-checked + .MuiSwitch-track': {
+    backgroundColor: 'rgb(140, 124, 182)',
+  },
+}));
 
 function QuestionsForm() {
   const [questions, setQuestions] = useState([
@@ -261,7 +274,9 @@ function QuestionsForm() {
                       copyQuestion(i);
                     }}
                   >
-                    <FilterNoneIcon />
+                    <FilterNoneIcon 
+                    className="copy"
+                    />
                   </IconButton>
                   <IconButton
                     aria-label="delete"
@@ -269,14 +284,11 @@ function QuestionsForm() {
                       deleteQuestion(i);
                     }}
                   >
-                    <BsTrash />
+                    <BsTrash 
+                    className ="bstrash"/>
                   </IconButton>
-                  <span style={{ color: "#5f6368", fontSize: "13px" }}>
-                    Required
-                  </span>
-                  <Switch
+                  <SwitchPurple
                     name="checkedA"
-                    color="primary"
                     onClick={() => {
                       requiredQuestion(i);
                     }}

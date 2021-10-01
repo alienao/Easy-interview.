@@ -15,7 +15,7 @@
 
 .questions_form_top{
     background-color: white;
-    border-top:8px solid rgb(103, 58, 183);
+    border-top:8px solid rgb(140, 124, 182);
     border-radius: 8px;
     padding:30px 25px;
     text-transform: capitalize; 
@@ -139,7 +139,7 @@ background:transparent;
 }
 
 .add_border{
-    border-left:6px solid rgb(103, 58, 183);
+    border-left:4px solid lightgray;
 }
 
 .add_footer{
@@ -159,4 +159,8 @@ background:transparent;
     display:flex;
     justify-content: flex-end;
     align-items: center;
+}
+
+.edit, .copy, .bstrash{
+    color:rgb(140, 124, 182);
 }
