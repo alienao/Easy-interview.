@@ -7,7 +7,7 @@ import { Paper } from "@material-ui/core";
 import { emailExp } from "../../constants";
 const useStyles = makeStyles((theme) => ({
   paperRoot: {
-    backgroundImage: "url(/assests/background.jpeg)",
+    backgroundImage: "url(/background.jpeg)",
     backgroundSize: "cover",
     height: window.innerHeight,
     width: window.innerWidth,

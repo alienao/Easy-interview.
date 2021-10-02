@@ -2,7 +2,7 @@ import React from "react";
 import styles from "./MainBody.module.css";
 import StorageIcon from "@mui/icons-material/Storage";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
-import card_image from "../../../card.png";
+import card_image from "../../../assets/images/card.png";
 
 function MainBody() {
   return (
