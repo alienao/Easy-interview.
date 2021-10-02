@@ -13,7 +13,7 @@ import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 
 const useStyles = makeStyles((theme) => ({
   background: {
-    backgroundImage: "url(/assests/background.jpeg)",
+    backgroundImage: "url(/background.jpeg)",
     backgroundSize: "cover",
     height: window.innerHeight,
     width: window.innerWidth,
