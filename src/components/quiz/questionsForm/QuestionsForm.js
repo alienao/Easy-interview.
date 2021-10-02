@@ -17,7 +17,7 @@ import CloseIcon from "@material-ui/icons/Close";
 import Radio from "@material-ui/core/Radio";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import MenuItem from "@mui/material/MenuItem";
-import "./QuestionsForm.css";
+import styles from "./QuestionsForm.module.css";
 
 const SwitchPurple = styled(Switch)(({ theme }) => ({
   "& .MuiSwitch-switchBase.Mui-checked": {
@@ -135,12 +135,12 @@ function QuestionsForm() {
             elevation={1}
             style={{ width: "100%" }}
           ></AccordionSummary>
-          <div className="question_boxes">
-            <AccordionDetails className="add_question">
-              <div className="add_question_top">
+          <div className={styles.question_boxes}>
+            <AccordionDetails className={styles.add_question}>
+              <div className={styles.add_question_top}>
                 <input
                   type="text"
-                  className="question"
+                  className={styles.question}
                   placeholder="Question"
                   value={ques.questionText}
                   onChange={(e) => {
@@ -149,7 +149,7 @@ function QuestionsForm() {
                 ></input>
 
                 <Select
-                  className="select"
+                  className={styles.select}
                   style={{ color: "rgb(140, 124, 182)", fontSize: "13px" }}
                 >
                   <MenuItem
@@ -202,7 +202,7 @@ function QuestionsForm() {
                 </Select>
               </div>
               {ques.options.map((op, j) => (
-                <div className="add_question_body" key={j}>
+                <div className={styles.add_question_body} key={j}>
                   {ques.questionType != "text" ? (
                     <input
                       type={ques.questionType}
@@ -214,7 +214,7 @@ function QuestionsForm() {
                   <div>
                     <input
                       type="text"
-                      className="text_input"
+                      className={styles.text_input}
                       placeholder="option"
                       value={ques.options[j].optionText}
                       onChange={(e) => {
@@ -235,7 +235,7 @@ function QuestionsForm() {
               ))}
 
               {
-                <div className="add_question_body">
+                <div className={styles.add_question_body}>
                   <FormControlLabel
                     disabled
                     control={
@@ -272,13 +272,13 @@ function QuestionsForm() {
                   />
                 </div>
               }
-              <div className="add_footer">
-                <div className="add_question_bottom_left"></div>
-                <div className="add_question_bottom">
+              <div className={styles.add_footer}>
+                <div className={styles.add_question_bottom_left}></div>
+                <div className={styles.add_question_bottom}>
                   <IconButton>
                     <AddCircleOutlineIcon
                       onClick={addMoreQuestionField}
-                      className="edit"
+                      className={styles.edit}
                     />
                   </IconButton>
 
@@ -288,7 +288,7 @@ function QuestionsForm() {
                       copyQuestion(i);
                     }}
                   >
-                    <FilterNoneIcon className="copy" />
+                    <FilterNoneIcon className={styles.copy} />
                   </IconButton>
                   <IconButton
                     aria-label="delete"
@@ -296,7 +296,7 @@ function QuestionsForm() {
                       deleteQuestion(i);
                     }}
                   >
-                    <BsTrash className="bstrash" />
+                    <BsTrash className={styles.bstrash} />
                   </IconButton>
                   <SwitchPurple
                     name="checkedA"
@@ -316,20 +316,20 @@ function QuestionsForm() {
 
   return (
     <div>
-      <div className="questions_form">
+      <div className={styles.questions_form}>
         <br></br>
-        <div className="section">
-          <div className="questions_title_section">
-            <div className="questions_form_top">
+        <div className={styles.section}>
+          <div className={styles.questions_title_section}>
+            <div className={styles.questions_form_top}>
               <input
                 type="text"
-                className="questions_form_top_name"
+                className={styles.questions_form_top_name}
                 style={{ color: "black" }}
                 placeholder="Untitled document"
               ></input>
               <input
                 type="text"
-                className="questions_form_top_desc"
+                className={styles.questions_form_top_desc}
                 placeholder="Form description"
               ></input>
             </div>

@@ -1,29 +1,29 @@
 import React from "react";
-import "./MainBody.css";
+import styles from "./MainBody.module.css";
 import StorageIcon from "@mui/icons-material/Storage";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 import card_image from "../../../card.png";
 
 function MainBody() {
   return (
-    <div className="mainbody">
+    <div className={styles.mainbody}>
       <div
-        className="mainbody_top"
+        className={styles.mainbody_top}
         style={{ fontSize: "25px", color: "#8b8b8b" }}
       >
         Recent forms
       </div>
 
-      <div className=" mainbody_docs">
-        <div className="mainbody_cards">
-          <img src={card_image} className="card_image" />
+      <div className={styles.mainbody_docs}>
+        <div className={styles.mainbody_cards}>
+          <img src={card_image} className={styles.card_image} />
           <div className="mainbody_card_content">
             <h5></h5>
             <div
-              className="card_content"
+              className={styles.card_content}
               style={{ fontSize: "12px", color: "grey" }}
             >
-              <div className="content_left">
+              <div className={styles.content_left}>
                 <StorageIcon
                   style={{
                     color: "white",
