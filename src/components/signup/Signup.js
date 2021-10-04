@@ -5,9 +5,11 @@ import Button from "@material-ui/core/Button";
 import { Link } from "react-router-dom";
 import { Paper } from "@material-ui/core";
 import { emailExp } from "../../constants";
+import BgImg from '../../assets/images/background.jpeg';
+
 const useStyles = makeStyles((theme) => ({
   paperRoot: {
-    backgroundImage: "url(/background.jpeg)",
+    backgroundImage: `url(${BgImg})`,
     backgroundSize: "cover",
     height: window.innerHeight,
     width: window.innerWidth,

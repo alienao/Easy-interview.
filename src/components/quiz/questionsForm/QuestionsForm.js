@@ -325,7 +325,7 @@ function QuestionsForm() {
                 type="text"
                 className={styles.questions_form_top_name}
                 style={{ color: "black" }}
-                placeholder="Untitled document"
+                placeholder="Untitled Form"
               ></input>
               <input
                 type="text"
