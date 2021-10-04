@@ -1,49 +1,49 @@
-import React, { useState, useEffect } from "react";
-import Select from "@material-ui/core/Select";
-import Switch from "@material-ui/core/Switch";
-import { alpha, styled } from "@mui/material/styles";
-import CheckBoxIcon from "@material-ui/icons/CheckBox";
-import ShortTextIcon from "@material-ui/icons/ShortText";
-import SubjectIcon from "@material-ui/icons/Subject";
-import { BsTrash } from "react-icons/bs";
-import { IconButton } from "@material-ui/core";
-import FilterNoneIcon from "@material-ui/icons/FilterNone";
-import AddCircleOutlineIcon from "@material-ui/icons/AddCircleOutline";
-import Accordion from "@mui/material/Accordion";
-import AccordionSummary from "@mui/material/AccordionSummary";
-import AccordionDetails from "@mui/material/AccordionDetails";
-import Button from "@material-ui/core/Button";
-import CloseIcon from "@material-ui/icons/Close";
-import Radio from "@material-ui/core/Radio";
-import FormControlLabel from "@material-ui/core/FormControlLabel";
-import MenuItem from "@mui/material/MenuItem";
-import styles from "./QuestionsForm.module.css";
+import React, { useState, useEffect } from 'react';
+import Select from '@material-ui/core/Select';
+import Switch from '@material-ui/core/Switch';
+import { alpha, styled } from '@mui/material/styles';
+import CheckBoxIcon from '@material-ui/icons/CheckBox';
+import ShortTextIcon from '@material-ui/icons/ShortText';
+import SubjectIcon from '@material-ui/icons/Subject';
+import { BsTrash } from 'react-icons/bs';
+import { IconButton } from '@material-ui/core';
+import FilterNoneIcon from '@material-ui/icons/FilterNone';
+import AddCircleOutlineIcon from '@material-ui/icons/AddCircleOutline';
+import Accordion from '@mui/material/Accordion';
+import AccordionSummary from '@mui/material/AccordionSummary';
+import AccordionDetails from '@mui/material/AccordionDetails';
+import Button from '@material-ui/core/Button';
+import CloseIcon from '@material-ui/icons/Close';
+import Radio from '@material-ui/core/Radio';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import MenuItem from '@mui/material/MenuItem';
+import styles from './QuestionsForm.module.css';
 
 const SwitchPurple = styled(Switch)(({ theme }) => ({
-  "& .MuiSwitch-switchBase.Mui-checked": {
-    color: "rgb(140, 124, 182)",
-    "&:hover": {
+  '& .MuiSwitch-switchBase.Mui-checked': {
+    color: 'rgb(140, 124, 182)',
+    '&:hover': {
       backgroundColor: alpha(
-        "rgb(140, 124, 182)",
+        'rgb(140, 124, 182)',
         theme.palette.action.hoverOpacity
       ),
     },
   },
-  "& .MuiSwitch-switchBase.Mui-checked + .MuiSwitch-track": {
-    backgroundColor: "rgb(140, 124, 182)",
+  '& .MuiSwitch-switchBase.Mui-checked + .MuiSwitch-track': {
+    backgroundColor: 'rgb(140, 124, 182)',
   },
 }));
 
 function QuestionsForm() {
   const [questions, setQuestions] = useState([
     {
-      questionText: "Which is the capital city of Armenia?",
-      questionType: "radio",
+      questionText: 'Which is the capital city of Armenia?',
+      questionType: 'radio',
       options: [
-        { optionText: "Ashtarak" },
-        { optionText: "Yerevan" },
-        { optionText: "Abovyan" },
-        { optionText: "Gyumri" },
+        { optionText: 'Ashtarak' },
+        { optionText: 'Yerevan' },
+        { optionText: 'Abovyan' },
+        { optionText: 'Gyumri' },
       ],
       open: true,
       required: false,
@@ -76,14 +76,14 @@ function QuestionsForm() {
     if (RemoveOptionQuestion[i].options.length > 1) {
       RemoveOptionQuestion[i].options.splice(j, 1);
       setQuestions(RemoveOptionQuestion);
-      console.log(i + "__" + j);
+      console.log(i + '__' + j);
     }
   }
 
   function addOption(i) {
     let optionOfQuestion = [...questions];
     optionOfQuestion[i].options.push({
-      optionText: "Option" + (optionOfQuestion[i].options.length + 1),
+      optionText: 'Option',
     });
     setQuestions(optionOfQuestion);
   }
@@ -105,7 +105,7 @@ function QuestionsForm() {
   function requiredQuestion(i) {
     let reqQuestion = [...questions];
     reqQuestion[i].required = !reqQuestion[i].required;
-    console.log(reqQuestion[i].required + " " + i);
+    console.log(reqQuestion[i].required + ' ' + i);
     setQuestions(reqQuestion);
   }
 
@@ -113,9 +113,9 @@ function QuestionsForm() {
     setQuestions([
       ...questions,
       {
-        questionText: "Question",
-        questionType: "radio",
-        options: [{ optionText: "Option 1" }],
+        questionText: 'Question',
+        questionType: 'radio',
+        options: [{ optionText: 'Option 1' }],
         open: true,
         required: false,
       },
@@ -127,13 +127,13 @@ function QuestionsForm() {
       <div>
         <Accordion
           expanded={questions[i].open}
-          className={questions[i].open ? "add_border" : ""}
+          className={questions[i].open ? 'add_border' : ''}
         >
           <AccordionSummary
             aria-controls="panel1a-content"
             id="panel1a-header"
             elevation={1}
-            style={{ width: "100%" }}
+            style={{ width: '100%' }}
           ></AccordionSummary>
           <div className={styles.question_boxes}>
             <AccordionDetails className={styles.add_question}>
@@ -150,34 +150,34 @@ function QuestionsForm() {
 
                 <Select
                   className={styles.select}
-                  style={{ color: "rgb(140, 124, 182)", fontSize: "13px" }}
+                  style={{ color: 'rgb(140, 124, 182)', fontSize: '13px' }}
                 >
                   <MenuItem
                     id="text"
                     value="Text"
                     onClick={() => {
-                      addQuestionType(i, "text");
+                      addQuestionType(i, 'text');
                     }}
                   >
                     <SubjectIcon
                       style={{
-                        marginRight: "10px",
-                        color: "rgb(140, 124, 182)",
+                        marginRight: '10px',
+                        color: 'rgb(140, 124, 182)',
                       }}
-                    />{" "}
+                    />{' '}
                     Paragraph
                   </MenuItem>
                   <MenuItem
                     id="checkbox"
                     value="Checkbox"
                     onClick={() => {
-                      addQuestionType(i, "checkbox");
+                      addQuestionType(i, 'checkbox');
                     }}
                   >
                     <CheckBoxIcon
                       style={{
-                        marginRight: "10px",
-                        color: "rgb(140, 124, 182)",
+                        marginRight: '10px',
+                        color: 'rgb(140, 124, 182)',
                       }}
                       checked
                     />
@@ -187,13 +187,13 @@ function QuestionsForm() {
                     id="radio"
                     value="Radio"
                     onClick={() => {
-                      addQuestionType(i, "radio");
+                      addQuestionType(i, 'radio');
                     }}
                   >
                     <Radio
                       style={{
-                        marginRight: "10px",
-                        color: "rgb(140, 124, 182)",
+                        marginRight: '10px',
+                        color: 'rgb(140, 124, 182)',
                       }}
                       checked
                     />
@@ -203,13 +203,13 @@ function QuestionsForm() {
               </div>
               {ques.options.map((op, j) => (
                 <div className={styles.add_question_body} key={j}>
-                  {ques.questionType != "text" ? (
+                  {ques.questionType != 'text' ? (
                     <input
                       type={ques.questionType}
-                      style={{ marginRight: "10px" }}
+                      style={{ marginRight: '10px' }}
                     />
                   ) : (
-                    <ShortTextIcon style={{ marginRight: "10px" }} />
+                    <ShortTextIcon style={{ marginRight: '10px' }} />
                   )}
                   <div>
                     <input
@@ -226,7 +226,7 @@ function QuestionsForm() {
                   <IconButton aria-label="delete">
                     <CloseIcon
                       style={{
-                        color: "rgb(140, 124, 182)",
+                        color: 'rgb(140, 124, 182)',
                       }}
                       onClick={() => removeOption(i, j)}
                     />
@@ -239,16 +239,16 @@ function QuestionsForm() {
                   <FormControlLabel
                     disabled
                     control={
-                      ques.questionType != "text" ? (
+                      ques.questionType != 'text' ? (
                         <input
                           type={ques.questionType}
                           color="primary"
-                          inputProps={{ "aria-label": "secondary checkbox" }}
-                          style={{ marginLeft: "10px", marginRight: "10px" }}
+                          inputProps={{ 'aria-label': 'secondary checkbox' }}
+                          style={{ marginLeft: '10px', marginRight: '10px' }}
                           disabled
                         />
                       ) : (
-                        <ShortTextIcon style={{ marginRight: "10px" }} />
+                        <ShortTextIcon style={{ marginRight: '10px' }} />
                       )
                     }
                     label={
@@ -256,10 +256,10 @@ function QuestionsForm() {
                         <Button
                           size="small"
                           style={{
-                            textTransform: "none",
-                            color: "rgb(140, 124, 182)",
-                            fontSize: "13px",
-                            fontWeight: "600",
+                            textTransform: 'none',
+                            color: 'rgb(140, 124, 182)',
+                            fontSize: '13px',
+                            fontWeight: '600',
                           }}
                           onClick={() => {
                             addOption(i);
@@ -324,7 +324,7 @@ function QuestionsForm() {
               <input
                 type="text"
                 className={styles.questions_form_top_name}
-                style={{ color: "black" }}
+                style={{ color: 'black' }}
                 placeholder="Untitled Form"
               ></input>
               <input
