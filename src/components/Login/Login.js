@@ -10,10 +10,11 @@ import InputAdornment from "@material-ui/core/InputAdornment";
 import IconButton from "@material-ui/core/IconButton";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
+import BgImg from '../../assets/images/background.jpeg';
 
 const useStyles = makeStyles((theme) => ({
   background: {
-    backgroundImage: "url(/background.jpeg)",
+    backgroundImage: `url(${BgImg})`,
     backgroundSize: "cover",
     height: window.innerHeight,
     width: window.innerWidth,
