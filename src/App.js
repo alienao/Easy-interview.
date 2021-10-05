@@ -2,6 +2,7 @@ import Login from "./components/Login/Login";
 import Signup from "./components/Signup/Signup";
 import Quiz from "./components/Quiz/Quiz";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import User from "./components/User/User";
 
 function App() {
   let jsonArr = [];
@@ -22,9 +23,11 @@ function App() {
             {" "}
             <Signup userCreatorFunc={userCreator} />{" "}
           </Route>
+          <Route path="/user"><User/></Route>
           <Route exact patch="/quiz">
             <Quiz />
           </Route>
+          
         </Switch>
       </div>
     </Router>

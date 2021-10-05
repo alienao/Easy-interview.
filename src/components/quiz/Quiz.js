@@ -6,7 +6,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import FormHeader from "../FormHeader/FormHeader";
 import CenteredTabs from "./Tabs/Tabs";
 import QuestionsForm from "./QuestionsForm/QuestionsForm";
-import QuizList from "../QuizList";
+import QuizList from "../QuizList/QuizList";
 
 function Quiz() {
   return (
