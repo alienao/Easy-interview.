@@ -15,5 +15,6 @@
     "QuestionFormCheckboxes":"Checkboxes",
     "QuestionFormMultipleChoice":"Multiple Choice",
     "QuestionFormAddOption":"Add new option",
-    "CreateFormNewQuize":"CreateNewQuiz"
+    "CreateFormNewQuize":"CreateNewQuiz",
+    "UserStart":"Start"
 }
