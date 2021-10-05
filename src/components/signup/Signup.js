@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import { Paper } from "@material-ui/core";
 import { emailExp } from "../../constants";
 import BgImg from '../../assets/images/background.jpeg';
+import names from '../../json/names.json'
 
 const useStyles = makeStyles((theme) => ({
   paperRoot: {
@@ -106,7 +107,7 @@ const Signup = (props) => {
           }}
         >
           {" "}
-          LOGO{" "}
+          {names.SignUpLogo}{" "}
         </div>
         <FormControl className={classes.form}>
           <TextField
@@ -159,12 +160,12 @@ const Signup = (props) => {
         </span>
         <div>
           <Button variant="outlined" className={classes.button} type="submit">
-            SIGN UP
+            {names.SignUp}
           </Button>
         </div>
         <div>
           <p>
-            Already have an account.Sign in <Link to="/">here</Link>.
+            {names.SignUpAlready} <Link to="/">{names.SignUpHere}</Link>.
           </p>
         </div>
       </form>

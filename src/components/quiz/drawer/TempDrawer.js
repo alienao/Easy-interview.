@@ -7,6 +7,7 @@ import ListItem from "@material-ui/core/ListItem";
 import ForumIcon from "@material-ui/icons/Forum";
 import SettingsIcon from "@material-ui/icons/Settings";
 import styles from "./TempDrawer.module.css";
+import names from "../../../json/names.json"
 
 const useStyles = makeStyles({
   listItem: {
@@ -35,11 +36,11 @@ function TempDrawer() {
       <List className={styles.listMain}>
         <ListItem className={styles.list_item}>
           <ForumIcon style={{ color: "white" }} />
-          <div className={classes.listItem}>Questions</div>
+          <div className={classes.listItem}>{names.TempDrawerQuestion}</div>
         </ListItem>
         <ListItem className={styles.list_item}>
           <SettingsIcon style={{ color: "white" }} />
-          <div className={classes.listItem}>Settings</div>
+          <div className={classes.listItem}>{names.TempDrawerSettings}</div>
         </ListItem>
       </List>
     </div>

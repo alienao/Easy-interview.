@@ -11,7 +11,7 @@ import IconButton from '@material-ui/core/IconButton';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 import BgImg from '../../assets/images/background.jpeg';
-
+import names from '../../json/names.json'
 const useStyles = makeStyles((theme) => ({
   background: {
     backgroundImage: `url(${BgImg})`,
@@ -82,7 +82,7 @@ const Login = (props) => {
       <Box className={classes.loginElements}>
         <Box className={classes.logo} style={{}}>
           {' '}
-          LOGO
+          {names.SignInLogo}
         </Box>
 
         <FormControl className={classes.form}>
@@ -123,12 +123,12 @@ const Login = (props) => {
           type="submit"
           onClick={handelSubmit}
         >
-          SIGN IN
+          {names.SignIn}
         </Button>
 
         <Box className={classes.signupLink}>
-          Don't have an account. Create account
-          <Link to="/signup"> here</Link> .
+          {names.SignInDont}
+          <Link to="/signup"> {names.SignInhere}</Link> .
         </Box>
       </Box>
     </Paper>

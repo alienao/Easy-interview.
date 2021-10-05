@@ -1,23 +1,24 @@
-import React, { useState, useEffect } from 'react';
-import Select from '@material-ui/core/Select';
-import Switch from '@material-ui/core/Switch';
-import { alpha, styled } from '@mui/material/styles';
-import CheckBoxIcon from '@material-ui/icons/CheckBox';
-import ShortTextIcon from '@material-ui/icons/ShortText';
-import SubjectIcon from '@material-ui/icons/Subject';
-import { BsTrash } from 'react-icons/bs';
-import { IconButton } from '@material-ui/core';
-import FilterNoneIcon from '@material-ui/icons/FilterNone';
-import AddCircleOutlineIcon from '@material-ui/icons/AddCircleOutline';
-import Accordion from '@mui/material/Accordion';
-import AccordionSummary from '@mui/material/AccordionSummary';
-import AccordionDetails from '@mui/material/AccordionDetails';
-import Button from '@material-ui/core/Button';
-import CloseIcon from '@material-ui/icons/Close';
-import Radio from '@material-ui/core/Radio';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import MenuItem from '@mui/material/MenuItem';
-import styles from './QuestionsForm.module.css';
+import React, { useState, useEffect } from "react";
+import Select from "@material-ui/core/Select";
+import Switch from "@material-ui/core/Switch";
+import { alpha, styled } from "@mui/material/styles";
+import CheckBoxIcon from "@material-ui/icons/CheckBox";
+import ShortTextIcon from "@material-ui/icons/ShortText";
+import SubjectIcon from "@material-ui/icons/Subject";
+import { BsTrash } from "react-icons/bs";
+import { IconButton } from "@material-ui/core";
+import FilterNoneIcon from "@material-ui/icons/FilterNone";
+import AddCircleOutlineIcon from "@material-ui/icons/AddCircleOutline";
+import Accordion from "@mui/material/Accordion";
+import AccordionSummary from "@mui/material/AccordionSummary";
+import AccordionDetails from "@mui/material/AccordionDetails";
+import Button from "@material-ui/core/Button";
+import CloseIcon from "@material-ui/icons/Close";
+import Radio from "@material-ui/core/Radio";
+import FormControlLabel from "@material-ui/core/FormControlLabel";
+import MenuItem from "@mui/material/MenuItem";
+import styles from "./QuestionsForm.module.css";
+import names from "../../../json/names.json"
 
 const SwitchPurple = styled(Switch)(({ theme }) => ({
   '& .MuiSwitch-switchBase.Mui-checked': {
@@ -164,8 +165,8 @@ function QuestionsForm() {
                         marginRight: '10px',
                         color: 'rgb(140, 124, 182)',
                       }}
-                    />{' '}
-                    Paragraph
+                    />{" "}
+                    {names.QuestionFormParagraph}
                   </MenuItem>
                   <MenuItem
                     id="checkbox"
@@ -175,13 +176,14 @@ function QuestionsForm() {
                     }}
                   >
                     <CheckBoxIcon
+                    
                       style={{
                         marginRight: '10px',
                         color: 'rgb(140, 124, 182)',
                       }}
                       checked
                     />
-                    Checkboxes
+                    {names.QuestionFormCheckboxes}
                   </MenuItem>
                   <MenuItem
                     id="radio"
@@ -197,7 +199,7 @@ function QuestionsForm() {
                       }}
                       checked
                     />
-                    Multiple Choice
+                    {names.QuestionFormMultipleChoice}
                   </MenuItem>
                 </Select>
               </div>
@@ -265,7 +267,7 @@ function QuestionsForm() {
                             addOption(i);
                           }}
                         >
-                          Add new option
+                          {names.QuestionFormAddOption}
                         </Button>
                       </div>
                     }

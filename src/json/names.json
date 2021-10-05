@@ -1,0 +1,19 @@
+{
+    "TempDrawerQuestion":"Question",
+    "TempDrawerSettings":"Settings",
+    "MainBodyRecentforms":"Recent forms",
+    "MainodyOpened6":"Opened 6 Jun 2021",
+    "SignUp":"SignUp",
+    "SignUpAlready":"Already have an account.Sign in",
+    "SignUpHere":"here",
+    "SignUpLogo":"LOGO",
+    "SignIn":"SIGN IN",
+    "SignInDont":"Don't have an account. Create account",
+    "SignInhere":"here",
+    "SignInLogo":"LOGO",
+    "QuestionFormParagraph":"Paragraph",
+    "QuestionFormCheckboxes":"Checkboxes",
+    "QuestionFormMultipleChoice":"Multiple Choice",
+    "QuestionFormAddOption":"Add new option",
+    "CreateFormNewQuize":"CreateNewQuiz"
+}

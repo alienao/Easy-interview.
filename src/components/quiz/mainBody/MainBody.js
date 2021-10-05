@@ -3,7 +3,7 @@ import styles from "./MainBody.module.css";
 import StorageIcon from "@mui/icons-material/Storage";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 import card_image from "../../../assets/images/card.png";
-
+import names from "../../../json/names.json"
 function MainBody() {
   return (
     <div className={styles.mainbody}>
@@ -11,7 +11,7 @@ function MainBody() {
         className={styles.mainbody_top}
         style={{ fontSize: "25px", color: "#8b8b8b" }}
       >
-        Recent forms
+        {names.MainBodyRecentforms}
       </div>
 
       <div className={styles.mainbody_docs}>
@@ -34,7 +34,7 @@ function MainBody() {
                     borderRadius: "2px",
                   }}
                 />
-                Opened 6 Jun 2021
+                {names.MainodyOpened6}
               </div>
               <MoreVertIcon style={{ fontSize: "16px", color: "grey" }} />
             </div>

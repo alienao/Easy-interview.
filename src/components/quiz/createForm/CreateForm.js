@@ -4,7 +4,7 @@ import AddCircleIcon from "@mui/icons-material/AddCircle";
 import styles from "./CreateForm.module.css";
 import uuid from "react-uuid";
 import { useHistory } from "react-router-dom";
-
+import names from "../../../json/names.json"
 function CreateForm() {
   const history = useHistory();
 
@@ -16,7 +16,7 @@ function CreateForm() {
     <div className={styles.createForm_section}>
       <div className={styles.createForm_left}>
         <span style={{ fontSize: "25px", color: "#8b8b8b" }}>
-          Create new qiuz
+          {names.CreateFormNewQuize}
         </span>
       </div>
       <div className={styles.createForm_right} onClick={createNewForm}>
