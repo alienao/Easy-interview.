@@ -6,6 +6,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import FormHeader from "../FormHeader/FormHeader";
 import CenteredTabs from "./Tabs/Tabs";
 import QuestionsForm from "./QuestionsForm/QuestionsForm";
+import QuizList from "../QuizList";
 
 function Quiz() {
   return (
@@ -17,7 +18,9 @@ function Quiz() {
             <CenteredTabs />
             <QuestionsForm />
           </Route>
-
+          <Route path = "/quiz/:quizListPath">
+            <QuizList/>
+          </Route>
           <Route path="/">
             <Header />
             <CreateForm />
