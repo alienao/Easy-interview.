@@ -1,0 +1,33 @@
+.createAcc{
+    color: #8D95A5;
+}
+
+.header{
+   color:black;
+   font-size: 20px;
+   text-align: left;
+}
+.btn{
+    font-size: 14px;
+    text-transform:capitalize;
+    margin: 2px 15px;
+}
+.email, .password{
+    font-weight: 500;  
+    color: black;
+    font-size: 18px;
+}
+.contMain{
+    width: 520px;
+    height: 600px;
+    margin: auto;
+}
+
+
+
+
+
+
+
+
+
