@@ -3,7 +3,6 @@ import Signup from "./components/Signup/Signup";
 import Quiz from "./components/Quiz/Quiz";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import User from "./components/User/User";
-import UserStart from "./components/UserStart/UserStart";
 
 function App() {
   let jsonArr = [];
@@ -24,7 +23,6 @@ function App() {
             {" "}
             <Signup userCreatorFunc={userCreator} />{" "}
           </Route>
-          <Route exact path="/userStart"><UserStart/></Route>
           <Route path="/user"><User/></Route>
           <Route exact patch="/quiz">
             <Quiz />

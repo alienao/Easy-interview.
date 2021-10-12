@@ -16,5 +16,7 @@
     "QuestionFormMultipleChoice":"Multiple Choice",
     "QuestionFormAddOption":"Add new option",
     "CreateFormNewQuize":"CreateNewQuiz",
-    "UserStart":"Start"
+    "UserStart":"Start",
+    "UserStartHi":"Hi! If you want to start the quiz, click on the button.",
+    "UserStartGo":"Go!!!"
 }
