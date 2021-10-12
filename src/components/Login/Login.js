@@ -11,7 +11,8 @@ import IconButton from '@material-ui/core/IconButton';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 import BgImg from '../../assets/images/background.jpeg';
-import names from '../../json/names.json'
+import names from '../../json/names.json';
+
 const useStyles = makeStyles((theme) => ({
   background: {
     backgroundImage: `url(${BgImg})`,
